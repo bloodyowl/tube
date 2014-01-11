@@ -71,8 +71,8 @@ var loginLine = require("../tube").line("login")
 
 // some code
 loginLine.receive("name", function(name){
-  if(this.verify("name", name)) {
-    this.set("name", name)
+  if(login.verify("name", name)) {
+    login.set("name", name)
   }
   loginLine.send("name:check", name)
 })

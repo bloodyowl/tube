@@ -31,7 +31,7 @@ tape("line._run", function(test){
 tape("line.send/line.receive", function(test){
   test.plan(2)
   var chan = line.create()
- chan.receive("foo", function(a,b){
+  chan.receive("foo", function(a,b){
     test.equal(a, "foo")
     test.equal(b, "bar")
     chan.stopReceiving("foo")
