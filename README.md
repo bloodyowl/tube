@@ -1,4 +1,4 @@
-## channel
+## tube
 
 [![browser support](https://ci.testling.com/bloodyowl/tube.png)](https://ci.testling.com/bloodyowl/tube)
 
