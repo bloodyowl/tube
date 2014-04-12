@@ -40,8 +40,21 @@ tape("line.send/line.receive", function(test){
   chan.send("foo", "foo", "bar")
 })
 
+tape("line.sendSync/line.receive", function(test){
+  var chan = line.create()
+  chan.receive("foo", function(a,b){
+    test.equal(a, "foo")
+    test.equal(b, "bar")
+    chan.stopReceiving("foo")
+    chan.sendSync("foo", 1, 1)
+  })
+  chan.sendSync("foo", "foo", "bar")
+  test.end()
+})
+
+
 tape("line.stopReceiving", function(test){
-  test.plan(1)
+  test.plan(2)
   var chan = line.create()
     , id = chan.receive("bar", function(){
         test.fail()
@@ -50,5 +63,8 @@ tape("line.stopReceiving", function(test){
     test.pass()
   })
   chan.stopReceiving("bar", id)
+  test.doesNotThrow(function(){
+    chan.stopReceiving("baz")
+  })
   chan.send("bar", "foo", "bar")
 })
