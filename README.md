@@ -2,7 +2,7 @@
 
 [![browser support](https://ci.testling.com/bloodyowl/tube.png)](https://ci.testling.com/bloodyowl/tube)
 
-### Install 
+### Install
 
 ```
 $ npm install bloody-tube
@@ -14,33 +14,37 @@ $ npm install bloody-tube
 var tube = require("bloody-tube")
 ```
 
-### Definition 
+### Definition
 
 Tube is a communication manager.  
-It helps you to publish and subsribe to messages, and separated communication lines. 
-It can help you managing communication between modules in medium to big applications. 
+It helps you to publish and subsribe to messages, and separated communication lines.
+It can help you managing communication between modules in medium to big applications.
 
 ### Methods
 
 #### `tube.create()` -> `tube network`
 
-Creates a channel to centralise all the messages within your app. 
+Creates a channel to centralise all the messages within your app.
 
-#### `tube.line(name) -> line` 
+#### `tube.line(name) -> line`
 
-Gets or creates the `name` communication tunnel. 
+Gets or creates the `name` communication tunnel.
 
 #### `line.receive(message, callback) -> id`
 
-Executes callback each item `message` is sent. 
+Executes callback each item `message` is sent.
 
 #### `line.stopReceiving(message[, id])`
 
-Stops receiving `id` callback, or all messages if no `id` is precised. 
+Stops receiving `id` callback, or all messages if no `id` is precised.
 
 #### `line.send(message[, args…])`
 
-Sends a message with arguments in the line. 
+Sends asynchronously a message with arguments in the line.
+
+#### `line.sendSync(message[, args…])`
+
+Sends synchronously a message with arguments in the line.
 
 ### Usage
 
